@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义事件练习</title>
+</head>
+<body>
+  <button>获取用户信息</button>
+  <div id="PersonalInfo"></div>
+  <div id="SchoolInfo"></div>
+  <div id="WorkInfo"></div>
+  <script>
+    const button = document.querySelector('button');
+    let userinfo = {
+      personalInfo: '个人信息',
+      schoolInfo: '学历信息',
+      workInfo: '工作信息'
+    }
+    
+    button.addEventListener('click', function() {
+      var getUserInfoEvent = new CustomEvent('getUserInfoEvent', {
+        detail: userinfo
+      });
+      document.dispatchEvent(getUserInfoEvent);
+    });
+  </script>
+  <script src="person-info.js"></script>
+  <script src="school-info.js"></script>
+  <script src="work-info.js"></script>
+</body>
+</html>
